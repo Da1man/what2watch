@@ -6,7 +6,7 @@ import {h, w} from '../constants';
 const FilmButton = (props) => {
     return (
         <View style={props.isSelected ? styles.containerActive : styles.container}>
-            <TouchableOpacity style={styles.buttonSection} onPress={() => props.toggleIsSelected(props.id)}>
+            <TouchableOpacity style={styles.buttonSection} onPress={() => props.toggleIsSelectedChannel(props.id)}>
                 <Image style={styles.buttonImage} source={props.image} resizeMode={'contain'}/>
             </TouchableOpacity>
         </View>

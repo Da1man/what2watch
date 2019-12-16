@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import GanreSettingsButton from './GanreSettingsButton';
 import {connect} from 'react-redux';
-import {toggleIsSelected} from '../Redux/mainScreenReducer';
+import {toggleIsSelectedGenre} from '../Redux/mainScreenReducer';
 import {w} from '../constants';
 
 const SettingsSettingsArea = (props) => {
@@ -17,19 +17,15 @@ const SettingsSettingsArea = (props) => {
                         props.genres.map( genre => <GanreSettingsButton key={genre.id}
                                                                         text={genre.name}
                                                                         image={genre.image}
+                                                                        isSelected={genre.isSelected}
+                                                                        toggleIsSelectedGenre={()=>props.toggleIsSelectedGenre(genre.id)}
                         />)
                     }
                 </View>
 
                 <View style={styles.searchButtonSection}>
-                    <TouchableOpacity style={styles.searchButton}>
-                        <Text style={styles.searchButtonText}>Поиск</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.clearButtonSection}>
-                    <TouchableOpacity style={styles.clearButton}>
-                        <Text style={styles.clearButtonText}>сброс выбранных каналов</Text>
+                    <TouchableOpacity style={styles.searchButton} onPress={props.toSearchList}>
+                        <Text style={styles.searchButtonText}>ИСКАТЬ</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -44,7 +40,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFCBA',
         paddingLeft: 10,
         paddingRight: 10,
-        paddingTop: 110,
+        paddingTop: 90,
         paddingBottom: 130,
     },
     containerInner: {
@@ -68,40 +64,22 @@ const styles = StyleSheet.create({
     searchButtonSection: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 10,
+        marginBottom: 20,
+        marginTop: 20,
     },
     searchButton: {
         backgroundColor: '#FFD444',
-        width: w * 0.62,
-        height: 42,
+        width: w * 0.8,
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 5,
         borderRadius: 5,
     },
     searchButtonText: {
-        fontSize: 16,
+        fontSize: 24,
         fontFamily: 'Russo-One',
         textTransform: 'uppercase',
-    },
-    clearButtonSection: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    clearButton: {
-        backgroundColor: '#E25757',
-        width: w * 0.93,
-        height: 42,
-        justifyContent: 'center',
-        alignItems: 'center',
-        elevation: 5,
-        borderRadius: 5,
-    },
-    clearButtonText: {
-        fontSize: 16,
-        fontFamily: 'Russo-One',
-        textTransform: 'lowercase',
     },
 
 });
@@ -113,6 +91,6 @@ let mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    toggleIsSelected,
+    toggleIsSelectedGenre,
 })(SettingsSettingsArea);
 

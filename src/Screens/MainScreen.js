@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, ScrollView} from 'react-native';
 import Header from '../Components/Header';
-import ButtonsArea from '../Components/ButtonsArea';
+import ChannelsArea from '../Components/ChannelsArea';
 import SettingsSettingsArea from '../Components/SettingsSettingsArea';
 
 
@@ -9,8 +9,8 @@ const MainScreen = (props) => {
     return (<>
             <Header/>
             <ScrollView>
-            <ButtonsArea />
-            <SettingsSettingsArea />
+                <ChannelsArea/>
+                <SettingsSettingsArea toSearchList={()=>props.navigation.navigate('Search')}/>
             </ScrollView>
         </>
     );

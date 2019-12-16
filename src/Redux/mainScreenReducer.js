@@ -1,5 +1,8 @@
 
-const TOGGLE_IS_SELECTED = 'TOGGLE_IS_SELECTED'
+const TOGGLE_IS_SELECTED_CHANNEL = 'TOGGLE_IS_SELECTED_CHANNEL';
+const TOGGLE_IS_SELECTED_GENRE = 'TOGGLE_IS_SELECTED_GENRE';
+const SELECT_ALL_CHANNELS = 'SELECT_ALL_CHANNELS';
+const CLEAR_ALL_SELECTED = 'CLEAR_ALL_SELECTED';
 
 let initialState = {
     channels: [
@@ -75,13 +78,13 @@ let initialState = {
             id: 2,
             name: 'Фильмы',
             image: require('../assets/images/genreLogo/genre-film-logo.png'),
-            isSelected: true,
+            isSelected: false,
         },
         {
             id: 3,
             name: 'Сериалы',
             image: require('../assets/images/genreLogo/genre-serials-logo.png'),
-            isSelected: true,
+            isSelected: false,
         },
     ]
 };
@@ -90,7 +93,7 @@ let initialState = {
 const mainScreenReduser = (state = initialState, action) => {
     switch (action.type) {
 
-        case TOGGLE_IS_SELECTED: {
+        case TOGGLE_IS_SELECTED_CHANNEL: {
             return {
                 ...state,
                 channels: state.channels.map(c => {
@@ -102,12 +105,48 @@ const mainScreenReduser = (state = initialState, action) => {
                 )
             };
         }
+
+        case TOGGLE_IS_SELECTED_GENRE: {
+            return {
+                ...state,
+                genres: state.genres.map(c => {
+                    if (c.id === action.genreId) {
+                        return {...c, isSelected: !c.isSelected}
+                    }
+                    return c;
+                    }
+                )
+            };
+        }
+
+        case SELECT_ALL_CHANNELS: {
+            return {
+                ...state,
+                channels: state.channels.map( c => {
+                    return {...c, isSelected: true}
+                })
+            }
+
+        }
+
+        case CLEAR_ALL_SELECTED: {
+            return {
+                ...state,
+                channels: state.channels.map( c => {
+                    return {...c, isSelected: false}
+                })
+            }
+        }
+
         default:
             return state;
     }
 
 }
 
-export const toggleIsSelected = (channelId) => ({type: TOGGLE_IS_SELECTED, channelId})
+export const toggleIsSelectedChannel = (channelId) => ({type: TOGGLE_IS_SELECTED_CHANNEL, channelId});
+export const toggleIsSelectedGenre = (genreId) => ({type: TOGGLE_IS_SELECTED_GENRE, genreId});
+export const selectAllChannels = () => ({type: SELECT_ALL_CHANNELS});
+export const clearAllSelected = () => ({type: CLEAR_ALL_SELECTED});
 
 export default mainScreenReduser;
