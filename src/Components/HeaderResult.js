@@ -1,14 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import Logo  from '../assets/images/arrow-left-solid.svg'
+import BackArrow  from '../assets/images/back-arrow.svg'
 
 
-const HeaderSearch = (props) => {
+
+const HeaderResult = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.headerSection}>
                 <TouchableOpacity style={styles.headerBackSection} onPress={props.backFunction}>
-                    <Logo width={40} height={40} />
+                    <BackArrow width={21} height={21} />
                 </TouchableOpacity>
                 <View style={styles.headerTitleSection}>
                     <Text style={styles.headerText}>Результаты поиска</Text>
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
     headerBackSection: {
         width: '10%',
         height: '100%',
-        backgroundColor: 'red',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -45,8 +45,9 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 24,
         fontFamily: 'Russo-One',
+        color: '#453201',
     },
 
 });
 
-export default HeaderSearch;
+export default HeaderResult;

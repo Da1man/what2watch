@@ -16,7 +16,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 
 import MainScreen from './src/Screens/MainScreen';
-import SearchScreen from './src/Screens/SearchScreen';
+import ResultScreen from './src/Screens/ResultScreen';
 
 
 
@@ -37,8 +37,8 @@ const StackNavigator = createStackNavigator({
     Main: {
         screen: MainScreen,
     },
-    Search: {
-        screen: SearchScreen,
+    Result: {
+        screen: ResultScreen,
     }
 },
     {

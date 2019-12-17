@@ -10,7 +10,7 @@ const MainScreen = (props) => {
             <Header/>
             <ScrollView>
                 <ChannelsArea/>
-                <SettingsSettingsArea toSearchList={()=>props.navigation.navigate('Search')}/>
+                <SettingsSettingsArea toSearchList={()=>props.navigation.navigate('Result')}/>
             </ScrollView>
         </>
     );
