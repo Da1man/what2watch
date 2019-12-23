@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
 
     },
     itemTimeSection: {
-        width: w * 0.11,
+        width: w * 0.15,
         paddingLeft: 1,
         paddingRight: 1,
         justifyContent: 'center',
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
         color: '#453201',
     },
     itemNameSection: {
-        width: w * 0.61,
+        width: w * 0.57,
         paddingLeft: 5,
         paddingRight: 5,
         justifyContent: 'center',

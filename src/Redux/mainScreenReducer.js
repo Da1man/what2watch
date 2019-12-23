@@ -82,7 +82,7 @@ let initialState = {
             id: 1,
             name: 'Фильмы',
             image: require('../assets/images/genreLogo/genre-film-logo.png'),
-            isSelected: false,
+            isSelected: true,
             parsePhrase: 'Фильм',
         },
         {
@@ -92,13 +92,13 @@ let initialState = {
             isSelected: false,
             parsePhrase: 'Сериал',
         },
-        {
-            id: 3,
-            name: 'Мультфильмы',
-            image: require('../assets/images/genreLogo/genre-mult-logo.png'),
-            isSelected: false,
-            parsePhrase: 'Мультфильм',
-        },
+        // {
+        //     id: 3,
+        //     name: 'Мультфильмы',
+        //     image: require('../assets/images/genreLogo/genre-mult-logo.png'),
+        //     isSelected: false,
+        //     parsePhrase: 'Мультфильм',
+        // },
     ]
 };
 
@@ -122,11 +122,17 @@ const mainScreenReduser = (state = initialState, action) => {
         case TOGGLE_IS_SELECTED_GENRE: {
             return {
                 ...state,
-                genres: state.genres.map(c => {
-                    if (c.id === action.genreId) {
-                        return {...c, isSelected: !c.isSelected}
+                genres: state.genres.map(g => {
+                    if (g.id === action.genreId) {
+                        if (!g.isSelected) {
+                            return {...g, isSelected: !g.isSelected}
+                        } else {
+                            return {...g}
+                        }
+                    } else {
+                        return {...g, isSelected: !g.isSelected}
                     }
-                    return c;
+                    return g;
                     }
                 )
             };

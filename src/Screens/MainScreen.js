@@ -8,7 +8,7 @@ import SettingsSettingsArea from '../Components/SettingsSettingsArea';
 const MainScreen = (props) => {
     return (<>
             <Header/>
-            <ScrollView>
+            <ScrollView style={{backgroundColor: '#FFFCBA'}}>
                 <ChannelsArea/>
                 <SettingsSettingsArea toSearchList={()=>props.navigation.navigate('Result')}/>
             </ScrollView>

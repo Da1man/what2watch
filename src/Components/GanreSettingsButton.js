@@ -17,14 +17,14 @@ const GanreSettingsButton = (props) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        width: w * 0.29,
+        width: w * 0.45,
         height: 42,
         elevation: 5,
         borderRadius: 5,
     },
     containerActive: {
         backgroundColor: 'white',
-        width: w * 0.29,
+        width: w * 0.45,
         height: 42,
         borderRadius: 5,
         borderWidth: 3,

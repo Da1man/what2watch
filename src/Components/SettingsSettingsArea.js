@@ -5,6 +5,21 @@ import {connect} from 'react-redux';
 import {toggleIsSelectedGenre} from '../Redux/mainScreenReducer';
 import {w} from '../constants';
 
+const timer = require('react-native-timer');
+
+const timeOuter = () => {
+
+    let t = 1000
+
+    for (let i = 1; i < 5; i++) {
+        timer.setTimeout(i, () => console.log(i), 1000 *i);
+
+    }
+
+}
+
+
+
 const SettingsSettingsArea = (props) => {
     return (
         <View style={styles.container}>
@@ -35,13 +50,15 @@ const SettingsSettingsArea = (props) => {
     );
 };
 
+
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#FFFCBA',
         paddingLeft: 10,
         paddingRight: 10,
-        paddingTop: 90,
-        paddingBottom: 130,
+        paddingTop: 50,
+        paddingBottom: 40,
     },
     containerInner: {
 

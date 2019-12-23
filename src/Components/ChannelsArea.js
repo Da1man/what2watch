@@ -10,13 +10,22 @@ import {
 import {w} from '../constants';
 
 
+
+
+
+
 class ChannelsArea extends React.Component {
 
     componentDidMount() {
+
+
     }
 
     render() {
         return (<>
+                <View style={styles.titleSection}>
+                    <Text style={styles.searchTitleText}>Искать:</Text>
+                </View>
                 <View style={styles.container}>
                     {
                         this.props.channels.map(channel => <FilmButton key={channel.id}
@@ -44,6 +53,20 @@ class ChannelsArea extends React.Component {
 };
 
 const styles = StyleSheet.create({
+    titleSection: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingBottom: 10,
+        paddingTop: 20,
+        backgroundColor: '#FFFCBA',
+
+    },
+    searchTitleText: {
+        fontSize: 16,
+        fontFamily: 'Russo-One',
+        textTransform: 'uppercase',
+    },
+
     container: {
         backgroundColor: '#FFFCBA',
         padding: 10,
